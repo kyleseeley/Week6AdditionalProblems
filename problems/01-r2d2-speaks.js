@@ -14,12 +14,32 @@
         pause for 400ms
 */
 
-function r2d2Speaks(code) {
-    // Your code here
-}
 
-let code = [0, 1, 1, 0];
-r2d2Speaks(code);
+
+function r2d2Speaks(code){
+    code.forEach((digit) => {
+        if (digit === 0){
+            console.log('beep');
+            setTimeout(400)
+        } else {
+            console.log('boop');
+            setTimeout(800)
+        }
+    })
+}
+function r2d2Speaks(code) {
+    code.forEach((digit) => {
+      if (digit === 0) {
+        console.log('beep');
+        setTimeout(() => {}, 400);
+      } else {
+        console.log('boop');
+        setTimeout(() => {}, 800);
+      }
+    });
+  }
+  let code = [0, 1, 1, 0];
+  r2d2Speaks(code);
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 try {
