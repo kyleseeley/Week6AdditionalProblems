@@ -9,10 +9,25 @@
     console.log(sort([14, 5, 10, 6, 3, 4, 21, 16, 9])); // prints [ 3, 4, 5, 6, 9, 10, 14, 16, 21 ]
 */
 
-function sort(nums) {
+function sort(nums, arr = []) {
     // Your code here
+
+    if(nums.length === 0){ // getting nums down to 0
+        return arr;
+    }
+    let min = Math.min(...nums)
+    let index = nums.indexOf(min)
+    arr.push(nums[index])
+    nums.splice(index, 1)
+    
+    return sort(nums, arr) 
 }
 
+
+console.log(sort([])) // prints []
+console.log(sort([9])) // prints [9]
+console.log(sort([5, 4, 3, 2, 1])) // prints [1, 2, 3, 4, 5]
+console.log(sort([14, 5, 10, 6, 3, 4, 21, 16, 9])); // prints [ 3, 4, 5, 6, 9, 10, 14, 16, 21 ]
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 try {
     module.exports = sort;
