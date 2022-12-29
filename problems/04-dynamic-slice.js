@@ -21,7 +21,23 @@
 
 function dynamicSlice(start, end) {
     // Your code here
-    return 
+    return function(arr) {
+      // if the start index is negative, set it to 0
+      if (start < 0) {
+        start = 0;
+      }
+      // if the end index is greater than the length of the array, set it to the length of the array
+      if (end > arr.length) {
+        end = arr.length;
+      }
+      // initialize the result array
+      const result = [];
+      // loop through the array and add elements to the result array between the start and end indices
+      for (let i = start; i < end; i++) {
+        result.push(arr[i]);
+      }
+      return result;
+    }
 }
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/

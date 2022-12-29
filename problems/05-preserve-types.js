@@ -27,8 +27,8 @@ console.log(preserveFunc2('boolean', 'string', 'undefined')); // prints [ undefi
 
 function preserveTypes(array) {
     // Your code here
-    return function(type) {
-        return array.filter(ele => typeof ele === type)
+    return function(...type) {
+        return array.filter(ele => type.includes(typeof ele))
     }
 }
 

@@ -28,8 +28,42 @@ However, for bonus points try to solve it both with recursion and iteration.
 
 function recursivePreserveType(array) {
     // Your code here
-}
+    return function(type) {
+        // base case: if the input array is empty, return an empty array
+        if (array.length === 0) {
+          return [];
+        }
+        // Recursive case:
+        // 1. get the first element in the array
+        // 2. check if its type matches the specified type
+        // 3. if it does, add it to the result array
+        // 4. call the return function on the rest of the array (all elements except the first one)
+        // 5. return the result array
+        const [first, ...rest] = array;
+        let result = [];
+        if (typeof first === type) {
+          result.push(first);
+        }
+        return result.concat(recursivePreserveType(rest)(type));
+      }
+    }
 
+
+
+
+    
+
+
+
+
+const preserveFunc = recursivePreserveType([1, 'one', 2, 'two', 3, 'three']);
+console.log(preserveFunc('number')); // prints [1, 2, 3]
+console.log(preserveFunc('string')); // prints ['one', 'two', 'three']
+
+const preserveFunc2 = recursivePreserveType([2, undefined, 'world', { color: 'red' }, true, 3, [4, 5], 'hello', false]);
+console.log(preserveFunc2('number')); // prints [2, 3]
+console.log(preserveFunc2('object')); // prints [ { color: 'red' }, [4, 5] ]
+console.log(preserveFunc2('boolean')); // prints [ true, false ]
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 try {
     module.exports = recursivePreserveType;
