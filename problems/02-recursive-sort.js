@@ -12,16 +12,25 @@
 function sort(nums, arr = []) {
     // Your code here
 
-    if(nums.length === 0){ // getting nums down to 0
-        return arr;
-    }
-    let min = Math.min(...nums)
-    let index = nums.indexOf(min)
-    arr.push(nums[index])
-    nums.splice(index, 1)
+    // if(nums.length === 0){ // getting nums down to 0
+    //     return arr;
+    // }
+    // let min = Math.min(...nums)
+    // let index = nums.indexOf(min)
+    // arr.push(nums[index])
+    // nums.splice(index, 1)
     
-    return sort(nums, arr) 
+    // return sort(nums, arr) 
+
+if (nums.length === 0) return [];
+  let max = Math.max(...nums);
+  let index = nums.indexOf(max);
+
+  nums.splice(index, 1);
+  return [...sort(nums), max];
 }
+
+
 
 
 console.log(sort([])) // prints []

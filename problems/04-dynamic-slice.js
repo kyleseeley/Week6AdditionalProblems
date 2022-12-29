@@ -21,6 +21,7 @@
 
 function dynamicSlice(start, end) {
     // Your code here
+    return 
 }
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
